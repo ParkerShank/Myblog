@@ -31,30 +31,32 @@ function NewPost({ onAdd }) {
   return (
     <>
       <Header />
-      <div className="content">
-        <h2>Create New Post</h2>
-        <form onSubmit={handleSubmit} className="new-post-form">
-          {error && <p className="error-message">{error}</p>}
+        <div className='spacer'></div>
+        <h2 style={{textAlign:'center'}}>Create New Post</h2>
+        <div className="content">
+            
+            <form onSubmit={handleSubmit} className="new-post-form">
+            {error && <p className="error-message">{error}</p>}
 
-          <label>
-            Title
-            <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Your post title" />
-          </label>
+            <label>
+                Title
+                <input type="text" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Your post title" />
+            </label>
 
-          <label>
-            Author
-            <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Your name" />
-          </label>
+            <label>
+                Author
+                <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Your name" />
+            </label>
 
-          <label>
-            Content
-            <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder="Write your post content" rows={8} />
-          </label>
+            <label>
+                Content
+                <textarea value={content} onChange={(e) => setContent(e.target.value)} placeholder="Write your post content" rows={8} />
+            </label>
 
-          <button className="button" type="submit">Publish Post</button>
-        </form>
-      </div>
-      <Footer />
+            <button className="button" type="submit">Publish Post</button>
+            </form>
+        </div>
+        <Footer />
     </>
   );
 }
