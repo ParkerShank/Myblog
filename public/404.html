@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>PShanBlog</title>
+    <script type="text/javascript">
+      // Redirect to index.html with the current path as a query parameter
+      var path = window.location.pathname;
+      var repoName = '/my-vite-app'; // Replace with your repo name
+      var redirectPath = repoName + '/?/' + path.slice(repoName.length + 1);
+      window.location.replace(window.location.origin + redirectPath);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>

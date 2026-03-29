@@ -1,12 +1,12 @@
 
-import { useState } from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { useState, useEffect } from 'react';
+import { BrowserRouter, Routes, Route, useNavigate } from 'react-router-dom';
 import Home from './Pages/Home.jsx';
 import Blog from './Pages/Blog.jsx';
 import NewPost from './Pages/NewPost.jsx';
 import './App.css';
 
-function App() {
+function AppContent() {
   const [posts, setPosts] = useState([
     {
       id: 1,
@@ -17,6 +17,19 @@ function App() {
     },
   ]);
 
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    // Handle GitHub Pages redirect
+    const query = window.location.search;
+    if (query.startsWith('/?')) {
+      const path = query.slice(2); // Remove '/?'
+      if (path) {
+        navigate(path, { replace: true });
+      }
+    }
+  }, [navigate]);
+
   const addPost = (post) => {
     setPosts((prevPosts) => [{ ...post, id: Date.now(), timestamp: new Date().toLocaleString() }, ...prevPosts]);
   };
@@ -26,13 +39,19 @@ function App() {
   };
 
   return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="/blog" element={<Blog posts={posts} onDelete={deletePost} />} />
+      <Route path="/new-post" element={<NewPost onAdd={addPost} />} />
+      <Route path="*" element={<div style={{ padding: '2rem', textAlign: 'center' }}><h2>404 - Page Not Found</h2><p>The page you are looking for does not exist.</p></div>} />
+    </Routes>
+  );
+}
+
+function App() {
+  return (
     <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/blog" element={<Blog posts={posts} onDelete={deletePost} />} />
-        <Route path="/new-post" element={<NewPost onAdd={addPost} />} />
-        <Route path="*" element={<div style={{ padding: '2rem', textAlign: 'center' }}><h2>404 - Page Not Found</h2><p>The page you are looking for does not exist.</p></div>} />
-      </Routes>
+      <AppContent />
     </BrowserRouter>
   );
 }
