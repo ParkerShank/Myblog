@@ -1,0 +1,34 @@
+__All pages__
+-Header component
+-footer component
+-content area
+
+
+__Home Page__
+-Text in the content area
+
+__Blog Page__
+-A precreated blog post will apear in content
+-Blogs will be automatically taken in as a prop
+-It will map them out based on that we will make a section for that post
+-Exapnds content area as more blogs added.
+
+__NewPost Page__
+-input fields for what we need
+-submit button
+-the button will then take that data and reset the fields
+-It will then add it to our post
+
+__App.jsx__
+This will manage everything. 
+-It controls routes
+-Makes and holds all posts to send to blog and to get added from
+
+__Header__
+-links to the different pages. 
+-fixed to the page
+
+
+Reflection-
+This project was very challenging but fun. I was able to do all I wanted.
+The props being managed was the hardest part to understand.
