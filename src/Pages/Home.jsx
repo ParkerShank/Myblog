@@ -8,12 +8,15 @@ function Home() {
   return (
     <>
       <Header />
+      <div className="spacer"></div>
+      <h2>Welcome to PShanBlog!</h2>
       <div className="content">
-        <h2>Welcome to PShanBlog!</h2>
+        
         <p>Your go-to platform for sharing your thoughts, ideas, and stories with the world. Whether you're a seasoned blogger or just starting out, PShanBlog provides a user-friendly interface to create and publish your content effortlessly.</p>
         <p>Begin your story by clicking the "Create Post" button above.</p>
         <p>See other posts in the "Blog" section.</p>
       </div>
+
       <Footer />
     </>
   )

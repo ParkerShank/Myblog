@@ -31,8 +31,10 @@ function NewPost({ onAdd }) {
   return (
     <>
       <Header />
+      <div className="spacer"></div>
+      <h2>Create New Post</h2>
       <div className="content">
-        <h2>Create New Post</h2>
+        
         <form onSubmit={handleSubmit} className="new-post-form">
           {error && <p className="error-message">{error}</p>}
 

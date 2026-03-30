@@ -7,8 +7,10 @@ function Blog({ posts = [], onDelete }) {
   return (
     <>
       <Header />
+      <div className="spacer"></div>
+      <h2>Blog Posts</h2>
       <div className="content">
-        <h2>Blog Posts</h2>
+        
         {posts.length === 0 ? (
           <p>No posts yet. Create the first post in the New Post page.</p>
         ) : (
@@ -17,7 +19,7 @@ function Blog({ posts = [], onDelete }) {
               <h3>{post.title}</h3>
               <p className="meta">By {post.author} on {post.timestamp}</p>
               <p>{post.content}</p>
-              <button className="button delete" onClick={() => onDelete(post.id)}>Delete</button>
+              <button className="buttonDel" onClick={() => onDelete(post.id)}>Delete</button>
             </article>
           ))
         )}
